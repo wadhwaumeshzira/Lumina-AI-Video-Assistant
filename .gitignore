@@ -1,0 +1,4 @@
+.envvector_db/
+downloads/
+__pycache__/
+*.wav

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0f;
+  --color-surface: #111118;
+  --color-surface-2: #1a1a25;
+  --color-border: #2a2a3a;
+  --color-accent: #7c3aed;
+  --color-accent-glow: #9f67ff;
+  --color-accent-2: #06b6d4;
+  --color-text: #e8e8f0;
+  --color-text-muted: #7070a0;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --font-sans: 'JetBrains Mono', monospace;
+  --font-display: 'Syne', sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom animated background pattern */
+.bg-pattern {
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
