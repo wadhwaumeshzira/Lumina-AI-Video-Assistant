@@ -14,8 +14,8 @@ app = FastAPI(title="AI Video Assistant API")
 # Setup CORS for the React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins for development
-    allow_credentials=True,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=False, # Must be False when origins is wildcard
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
 )
