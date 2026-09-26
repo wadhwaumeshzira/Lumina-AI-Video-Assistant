@@ -7,12 +7,7 @@ import os
 
 load_dotenv()
 
-# Import core functionality
-from utils.audio_processor import process_input
-from core.transcriber import transcribe_all
-from core.summarizer import summarize, generate_title
-from core.extractor import extract_action_items, extract_key_decisions, extract_questions
-from core.rag_engine import build_rag_chain, ask_question, load_rag_chain
+# Core functionality will be imported locally in endpoints to prevent timeout
 
 app = FastAPI(title="AI Video Assistant API")
 
@@ -41,6 +36,10 @@ async def analyze_video(
 ):
     global global_rag_chain
     try:
+        from utils.audio_processor import process_input
+        from core.transcriber import transcribe_all
+        from core.rag_engine import build_rag_chain
+        
         input_path = source
         
         if file:
@@ -132,6 +131,8 @@ The JSON keys must remain in English, but the content must be in {language.upper
 @app.post("/api/chat")
 async def chat_with_meeting(req: ChatRequest):
     global global_rag_chain
+    from core.rag_engine import ask_question, load_rag_chain
+    
     if not global_rag_chain:
         try:
             # Try to load existing vector store if chain is not in memory
