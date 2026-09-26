@@ -16,5 +16,9 @@ COPY . .
 # Expose the port
 EXPOSE 8000
 
-# Run the FastAPI server on port 10000
-CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "10000"]
+# Copy start script
+COPY start.sh .
+RUN apt-get update && apt-get install -y dos2unix && dos2unix start.sh && chmod +x start.sh
+
+# Run the startup script
+CMD ["./start.sh"]
