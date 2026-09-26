@@ -50,3 +50,5 @@ python-multipart>=0.0.9
 pytubefix==11.1.0
 google-genai>=0.1.0
 langchain-google-genai>=1.0.0
+langchain-chroma>=0.1.1
+
